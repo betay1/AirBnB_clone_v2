@@ -6,6 +6,9 @@ starts a Flask web application
 from flask import Flask
 app = Flask(__name__)
 
+def some_function():
+    text = "some_text"
+    return 'Python ' + text.replace('_', ' ')
 
 @app.route('/', strict_slashes=False)
 def index():
@@ -29,7 +32,7 @@ def cisfun(text):
 @app.route('/python/<text>', strict_slashes=False)
 def pythoniscool(text='is cool'):
     """display “Python ”, followed by the value of the text variable"""
-return 'Python ' + text.replace('_', ' ')
+    return 'Python ' + text.replace('_', ' ')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000')
